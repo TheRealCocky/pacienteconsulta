@@ -1,0 +1,24 @@
+# Git & IDE
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# Build artifacts
+bin/
+obj/
+out/
+
+# Logs & temp
+*.log
+*.tmp
+
+# Docker & config local
+docker-compose.yml
+docker-compose.override.yml
+appsettings.Development.json
+.env
+README.md
+
+# EF migration snapshot
+**/*Snapshot.cs

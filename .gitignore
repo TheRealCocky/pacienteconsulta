@@ -1,0 +1,33 @@
+# Build
+bin/
+obj/
+out/
+
+# Logs
+*.log
+
+# Rider / VSCode / VS
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Docker
+Dockerfile
+docker-compose.override.yml
+
+# Database (caso use SQLite local)
+*.db
+*.sqlite
+
+# Entity Framework
+Migrations/*Snapshot.cs
+
+# Configs locais/sensíveis
+.env
+appsettings.Development.json
+appsettings.json
+fly.toml

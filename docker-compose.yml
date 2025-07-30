@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Laurinda2002
+      POSTGRES_DB: PacienteConsultaDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: PacienteConsulta/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PacienteConsultaDb;Username=postgres;Password=Laurinda2002
+    depends_on:
+      - postgres
+
+volumes:
+  pg_data:
