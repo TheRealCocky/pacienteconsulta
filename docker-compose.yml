@@ -8,16 +8,16 @@ services:
       POSTGRES_PASSWORD: Laurinda2002
       POSTGRES_DB: PacienteConsultaDb
     ports:
-      - "5432:5432"
+      - "5433:5432"  # Mapeia a porta externa 5433 para a porta interna padrão 5432 do Postgres
     volumes:
       - pg_data:/var/lib/postgresql/data
 
   app:
     build:
       context: .
-      dockerfile: PacienteConsulta/Dockerfile
+      dockerfile: Dockerfile  # Supondo que o Dockerfile está na raiz do projeto
     ports:
-      - "8080:8080"
+      - "8080:8080"  # Porta exposta do ASP.NET Core
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=PacienteConsultaDb;Username=postgres;Password=Laurinda2002
@@ -26,3 +26,4 @@ services:
 
 volumes:
   pg_data:
+
